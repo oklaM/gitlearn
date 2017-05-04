@@ -9,29 +9,29 @@ int dfs(int x, int y, int a){
     int left=0,right=0,up=0,down=0;
     if(d[bl[x+1][y]-'A']==0 && bm[x+1][y]==0){
         d[bl[x+1][y]-'A']=true;
-        bm[x+1][y]=a;
-        right=a;
+        bm[x+1][y]=a+1;
+        right=a+1;
         dfs(x+1, y, a+1);
     }
     if(d[bl[x-1][y]-'A']==0 && bm[x-1][y]==0){
         d[bl[x-1][y]-'A']=true;
-        bm[x-1][y]=a;
-        left=a;
+        bm[x-1][y]=a+1;
+        left=a+1;
         dfs(x-1, y, a+1);
     }
     if(d[bl[x][y+1]-'A']==0 && bm[x][y+1]==0){
         d[bl[x][y+1]-'A']=true;
-        bm[x][y+1]=a;
-        up=a;
+        bm[x][y+1]=a+1;
+        up=a+1;
         dfs(x, y+1, a+1);
     }
     if(d[bl[x][y-1]-'A']==0 && bm[x][y-1]==0){
         d[bl[x][y-1]-'A']=true;
-        bm[x][y-1]=a;
-        down=a;
+        bm[x][y-1]=a+1;
+        down=a+1;
         dfs(x, y-1, a+1);
     }
-    return (max(left, right), max(up, down));    
+    return max(max(left, right), max(up, down));    
 }
 int main(){
     cin>>r>>c;
