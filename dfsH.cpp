@@ -1,6 +1,6 @@
 #include <cstdio>
 #include <cmath>
-const int maxn=pow(2,10)+1000;
+const int maxn=pow(2,10)+10;
 int a[maxn],ans=0,max=0,tree[maxn]={0,0};
 
 void dfs(int begin, int end){
