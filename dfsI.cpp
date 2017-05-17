@@ -18,6 +18,7 @@ void dfs(int i, int j, int len){
         if(tra[ii][jj] && ii>=0 && ii<r && ii>=0 && ii<c){
         dfs(ii, jj, len+1);
         tra[ii][jj]=1;
+        t[len+1]='\0';
         }
         if(strlen(t)==len){
             if(strcmp(t,ans)>0){
@@ -29,11 +30,15 @@ void dfs(int i, int j, int len){
 
 int main(){
     memset(tra, 0, sizeof(tra));
-    while(scanf("%d %d\n", &r, &c)&& r && c){
+    while(scanf("%d %d", &r, &c)&& r && c){
+        for(int i=0; i<r; ++i)
+//        for(int j=0; j<c; ++j)
+        scanf("%s", &maze[i]);
         for(int i=0; i<r; ++i)
         for(int j=0; j<c; ++j)
-        scanf("%c", &maze[i][j]), tra[i][j]=1;
-  //      memset(ans, '\0', sizeof(ans));
+        if(maze[i][j]>='1' && maze[i][j]<='9')
+        tra[i][j]=1;
+        memset(ans, '\0', sizeof(ans));
         for(int i=0; i<r; ++i)
         for(int j=0; j<c; ++j)
         dfs(i, j, 0);
